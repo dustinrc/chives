@@ -1,0 +1,20 @@
+language: go
+
+go:
+    - 1.1
+    - 1.2
+    - tip
+
+install:
+    - go get launchpad.net/gocheck
+    - go get github.com/dustinrc/chives
+
+script:
+    - go test -v ./...
+      #- go test -race ./...
+
+matrix:
+    allow_failures:
+        - go: 1.1
+        - go: tip
+    fast_finish: true
